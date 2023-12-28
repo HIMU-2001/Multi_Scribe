@@ -1,4 +1,4 @@
-# Multi Scribe - Google Docs Clone
+# Multi Scribe 
 
 ## Overview
 
