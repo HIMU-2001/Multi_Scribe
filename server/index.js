@@ -27,7 +27,7 @@ httpServer.listen(PORT,()=>{
 // });
 const io = new Server(httpServer,{
     cors:{
-        origin:'https://multi-scribe.vercel.app/',
+        origin:'*',
         methods:['GET','POST']
     }
 });
