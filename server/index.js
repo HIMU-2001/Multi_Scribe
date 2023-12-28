@@ -9,7 +9,12 @@ const PORT = process.env.PORT||9000;
 
 Connection();
 const app = express();
-app.use(cors());
+// const corsOptions ={
+//     origin:'http://localhost:3000', 
+//     credentials:true,            //access-control-allow-credentials:true
+//     optionSuccessStatus:200
+// }
+// app.use(cors(corsOptions));
 const httpServer = createServer(app);
 httpServer.listen(PORT,()=>{
     console.log("SERVER RUNNING");
@@ -20,7 +25,12 @@ httpServer.listen(PORT,()=>{
 //         methods:['GET','POST']
 //     }
 // });
-const io = new Server(httpServer);
+const io = new Server(httpServer,{
+    cors:{
+        origin:'https://multi-scribe.vercel.app/',
+        methods:['GET','POST']
+    }
+});
 
 io.on('connection',socket=>{
     console.log("Connected");
